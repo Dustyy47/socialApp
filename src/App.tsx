@@ -1,3 +1,9 @@
+import Test from "@components/Test";
+
 export function App() {
-  return <div>Hello world!</div>;
+  return (
+    <div className="block">
+      <Test></Test>
+    </div>
+  );
 }

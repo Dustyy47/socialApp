@@ -1,10 +1,15 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 module.exports = {
   entry: path.resolve(__dirname, "..", "./src/index.tsx"),
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: [".tsx", ".ts", ".js", "scss"],
+    alias: {
+      "@src": path.resolve(__dirname, "..", "src/"),
+      "@components": path.resolve(__dirname, "..", "src/components/"),
+    },
   },
   module: {
     rules: [
@@ -17,10 +22,10 @@ module.exports = {
           },
         ],
       },
-      //   {
-      //     test: /\.css$/,
-      //     use: ["style-loader", "css-loader"],
-      //   },
+      {
+        test: /\.scss$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
       //   {
       //     test: /\.(png|svg|jpg|jpeg|gif)$/i,
       //     type: "asset/resource",
