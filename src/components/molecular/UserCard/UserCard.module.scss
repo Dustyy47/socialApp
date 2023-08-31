@@ -7,11 +7,15 @@
   transition: 0.3s background;
   border: 1px solid white;
 
-  &:hover {
+  &:not(&--active):hover {
     background: #ffffff95;
   }
 
   &:active {
+    background: #f1f2f3;
+  }
+
+  &--active {
     background: #f1f2f3;
   }
 }

@@ -12,8 +12,8 @@ export interface IUserCard {
 }
 
 export interface IFullUserInfo {
-  user: IUser,
-  notes: INote[],
+  user: IUser
+  notes: INote[]
   consulations: IConsulation[]
   videos: IVideo[]
   events: IEvent[]

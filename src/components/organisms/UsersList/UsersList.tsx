@@ -1,15 +1,23 @@
-import { FilterIcon } from "@src/components/atomic/FilterIcon/FilterIcon";
-import { PlusIcon } from "@src/components/atomic/PlusIcon/PlusIcon";
-import { Searchbar } from "@src/components/molecular/Searchbar/Searchbar";
-import { Statusbar } from "@src/components/molecular/Statusbar/Statusbar";
-import UserCard from "@src/components/molecular/UserCard/UserCard";
-import { IUserCard } from "@src/types";
-import { useEffect, useState } from "react";
-import styles from "./UsersList.module.scss";
+import { FilterIcon } from '@src/components/atomic/FilterIcon/FilterIcon';
+import { PlusIcon } from '@src/components/atomic/PlusIcon/PlusIcon';
+import { Searchbar } from '@src/components/molecular/Searchbar/Searchbar';
+import { Statusbar } from '@src/components/molecular/Statusbar/Statusbar';
+import UserCard from '@src/components/molecular/UserCard/UserCard';
+import { IFullUserInfo, IUserCard } from '@src/types';
+import { useEffect, useState } from 'react';
+import styles from './UsersList.module.scss';
 
-export function UsersList({ userCards }: { userCards: IUserCard[] }) {
+export function UsersList({
+  userCards,
+  activeUserId,
+  setActiveUserId
+}: {
+  userCards: IUserCard[];
+  activeUserId: string | null;
+  setActiveUserId: (userId: string) => void;
+}) {
   const [filteredCards, setFilteredCards] = useState(userCards);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
   const [isAscending, setIsAscending] = useState(true);
   const [isChecking, setIsChecking] = useState(false);
   const [checkedUsers, setCheckedUsers] = useState<string[]>([]);
@@ -82,6 +90,8 @@ export function UsersList({ userCards }: { userCards: IUserCard[] }) {
         {filteredCards.map((userCard) => (
           <div className={styles.userCard} key={userCard.user.id}>
             <UserCard
+              isActive={activeUserId === userCard.user.id}
+              onClick={() => setActiveUserId(userCard.user.id)}
               showCheckbox={isChecking}
               onCheck={(isChecked) =>
                 handleCheckUser(userCard.user.id, isChecked)
