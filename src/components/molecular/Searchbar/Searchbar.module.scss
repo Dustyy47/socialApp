@@ -1,0 +1,38 @@
+@import "~@styles/variables.scss";
+
+.wrapper {
+  height: 3.75rem;
+  padding-inline: 0.625rem;
+  box-shadow: 0px 1px 4px 0px rgba(19, 19, 19, 0.1) !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inputWrapper {
+  width: 100%;
+  max-width: 18.75rem;
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid $greyBorder;
+  border-radius: 5.625rem;
+  height: 2.5rem;
+  padding-inline: 2.125rem 10px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.activeInputIcon {
+  position: absolute;
+  top: 55%;
+  left: 0.5625rem;
+  transform: translateY(-50%);
+}
+
+.lastButtons {
+  gap: 0.625rem;
+  display: flex;
+}

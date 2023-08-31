@@ -1,0 +1,27 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.3s background;
+  border: 1px solid white;
+
+  &:hover {
+    background: #ffffff95;
+  }
+
+  &:active {
+    background: #f1f2f3;
+  }
+}
+
+.contentWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.avatarWrapper {
+  height: 2.5rem;
+}

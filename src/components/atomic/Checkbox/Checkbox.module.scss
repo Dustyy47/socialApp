@@ -1,0 +1,43 @@
+@import "~@styles/variables.scss";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox {
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 0.25rem;
+  border: 1px solid $greyBorder;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  cursor: pointer;
+  transition: 0.05s;
+}
+
+.input {
+  appearance: none;
+
+  &:checked ~ .checkbox {
+    background: $blueText;
+    border: none;
+    & .mark {
+      appearance: auto !important;
+    }
+  }
+}
+
+.mark {
+  appearance: none;
+  color: white;
+}
+
+.label {
+  margin-left: 0.625rem;
+  font-size: 0.875rem;
+  color: $greyText;
+}

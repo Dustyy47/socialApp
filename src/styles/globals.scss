@@ -1,0 +1,60 @@
+@import "~@styles/variables.scss";
+@import "~@styles/reset.scss";
+@import "~@styles/fonts.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $lightGreyBg;
+  font-family: "SF Pro Display";
+  color: $blackText;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding-inline: 10px;
+  max-width: 71.25rem;
+}
+
+.wrapper {
+  margin-top: 1.875rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.875rem;
+
+  & > .list {
+    max-width: 22.875rem;
+    width: 100%;
+  }
+
+  & > .profile {
+    width: 100%;
+  }
+}
+
+.roundedIconWrapper {
+  width: 2.125rem;
+  height: 2.125rem;
+  border-radius: 100%;
+  background: $lightGreyBg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background: $blueText;
+    & > .roundedIcon {
+      color: white;
+    }
+  }
+}
+
+.roundedIcon {
+  transition: 0.3s;
+  color: $greyText;
+}

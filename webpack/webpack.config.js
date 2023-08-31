@@ -1,6 +1,5 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 module.exports = {
   entry: path.resolve(__dirname, "..", "./src/index.tsx"),
@@ -9,6 +8,7 @@ module.exports = {
     alias: {
       "@src": path.resolve(__dirname, "..", "src/"),
       "@components": path.resolve(__dirname, "..", "src/components/"),
+      "@styles": path.resolve(__dirname, "..", "src/styles/"),
     },
   },
   module: {

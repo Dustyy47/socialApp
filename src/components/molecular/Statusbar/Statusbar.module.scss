@@ -1,0 +1,53 @@
+@import "~@styles/variables.scss";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.checkbox {
+  margin-left: 0.5625rem;
+}
+
+.checks {
+  display: flex;
+}
+
+.options {
+  display: flex;
+}
+
+.option {
+  font-size: 0.875rem;
+  color: $greyText;
+  cursor: pointer;
+  transition: 0.3s color;
+  margin-right: 15px;
+
+  &:hover {
+    color: $blackText;
+  }
+}
+
+.single {
+  margin-right: 0.625rem;
+}
+
+.counter {
+  margin-left: 0.9375rem;
+  font-size: 0.75rem;
+  color: white;
+  display: flex;
+  width: 1.625rem;
+  height: 1.125rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5625rem;
+  background: $greyText;
+  transition: 0.3s;
+
+  &--active {
+    background: $blueText;
+  }
+}
