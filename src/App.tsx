@@ -4,54 +4,28 @@ import Header from './components/organisms/Header/Header';
 import { UsersList } from './components/organisms/UsersList/UsersList';
 import { IUser, IUserCard } from './types';
 import { useMemo, useState } from 'react';
-
-const link =
-  'https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1296346667/image_1296346667.jpg?io=getty-c-w1536';
-
-const mockUsersCards: IUserCard[] = [
-  {
-    user: {
-      id: '123',
-      age: 30,
-      avatarUrl: link,
-      gender: 'male',
-      name: 'Алтаев Денис Петрович'
-    },
-    status: 'newNote'
-  },
-  {
-    user: {
-      id: '1232',
-      age: 301,
-      avatarUrl: link,
-      gender: 'male',
-      name: 'Бананин  Денис Петрович'
-    },
-    status: 'alert'
-  }
-];
+import { Profile } from './components/organisms/Profile/Profile';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { mockUsersCards } from './mock';
+import { UsersPage } from './pages/UsersPage/UsersPage';
 
 export function App() {
-  const [activeUserId, setActiveUserId] = useState<string | null>(null);
-  const activeUser = mockUsersCards.find(
-    (card) => card.user.id === activeUserId
-  );
-
   return (
     <>
       <Header />
       <main className='wrapper container'>
-        <div className='list'>
-          <UsersList
-            setActiveUserId={setActiveUserId}
-            activeUserId={activeUserId}
-            userCards={mockUsersCards}
-          ></UsersList>
-        </div>
-        {/* <UserCard user={mockUser} status="newNote" /> */}
-        <div className='profile'>
-          {activeUser && <UserInfo user={activeUser.user} />}
-        </div>
+        <Routes>
+          <Route path='users' element={<UsersPage />}>
+            <Route path=':id' element={<Profile />}>
+              <Route path='profile' element={'PROFILE'}></Route>
+              <Route
+                path='*'
+                element={<Navigate to='profile'></Navigate>}
+              ></Route>
+            </Route>
+          </Route>
+          <Route path='*' element={<Navigate to='users'></Navigate>} />
+        </Routes>
       </main>
     </>
   );

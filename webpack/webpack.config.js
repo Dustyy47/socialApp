@@ -33,14 +33,15 @@ module.exports = {
     ],
   },
   output: {
+    publicPath: '/',
     path: path.resolve(__dirname, "..", "./build"),
     filename: "bundle.js",
   },
   mode: "development",
-  //   devServer: {
-  //     contentBase: path.resolve(__dirname, "..", "./build"),
-  //     hot: true,
-  //   },
+
+  devServer: {
+    historyApiFallback: true,
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "..", "./public/index.html"),

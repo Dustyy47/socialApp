@@ -3,8 +3,8 @@ import { Card } from '@src/components/atomic/Card/Card';
 import { Checkbox } from '@src/components/atomic/Checkbox/Checkbox';
 import UserStatus from '@src/components/atomic/UserStatus/UserStatus';
 import { IUser, IUserStatus } from '@src/types';
-import styles from './UserCard.module.scss';
 import clsx from 'clsx';
+import styles from './UserCard.module.scss';
 
 export function UserCard({
   user,
@@ -19,9 +19,9 @@ export function UserCard({
   status: IUserStatus;
   isChecked: boolean;
   showCheckbox: boolean;
-  onClick: () => void;
   onCheck: (v: boolean) => void;
   isActive?: boolean;
+  onClick: () => void;
 }) {
   return (
     <Card
@@ -29,7 +29,9 @@ export function UserCard({
       className={clsx(styles.wrapper, isActive && styles['wrapper--active'])}
     >
       <div className={styles.contentWrapper}>
-        {showCheckbox && <Checkbox isChecked={isChecked} onToggle={onCheck} />}
+        <div onClick={(e) => e.stopPropagation()}>
+          {<Checkbox isChecked={isChecked} onToggle={onCheck} />}
+        </div>
         <div className={styles.avatarWrapper}>
           <Avatar src={user.avatarUrl} alt={user.name} />
         </div>

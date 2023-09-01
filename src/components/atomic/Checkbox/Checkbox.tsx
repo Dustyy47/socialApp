@@ -10,7 +10,6 @@ export function Checkbox({
   label?: string;
 }) {
   const handleToggle = (e: React.ChangeEvent) => {
-    e.stopPropagation();
     onToggle(!isChecked);
   };
 

@@ -6,21 +6,18 @@ import UserCard from '@src/components/molecular/UserCard/UserCard';
 import { IFullUserInfo, IUserCard } from '@src/types';
 import { useEffect, useState } from 'react';
 import styles from './UsersList.module.scss';
+import { Link, Outlet, useNavigate, useParams } from 'react-router-dom';
 
-export function UsersList({
-  userCards,
-  activeUserId,
-  setActiveUserId
-}: {
-  userCards: IUserCard[];
-  activeUserId: string | null;
-  setActiveUserId: (userId: string) => void;
-}) {
+export function UsersList({ userCards }: { userCards: IUserCard[] }) {
   const [filteredCards, setFilteredCards] = useState(userCards);
   const [searchQuery, setSearchQuery] = useState('');
   const [isAscending, setIsAscending] = useState(true);
   const [isChecking, setIsChecking] = useState(false);
   const [checkedUsers, setCheckedUsers] = useState<string[]>([]);
+
+  const params = useParams();
+  const navigate = useNavigate();
+  const { id } = params;
 
   function handleSearch(query: string) {
     setSearchQuery(query);
@@ -64,6 +61,9 @@ export function UsersList({
     }
     setCheckedUsers((prev) => prev.filter((checkedId) => checkedId !== id));
   }
+  function handleClickUser(id: string) {
+    navigate(`/users/${id}/profile`);
+  }
 
   useEffect(() => {
     applyFilter(isAscending);
@@ -90,15 +90,15 @@ export function UsersList({
         {filteredCards.map((userCard) => (
           <div className={styles.userCard} key={userCard.user.id}>
             <UserCard
-              isActive={activeUserId === userCard.user.id}
-              onClick={() => setActiveUserId(userCard.user.id)}
+              onClick={() => handleClickUser(userCard.user.id)}
+              isActive={id === userCard.user.id}
               showCheckbox={isChecking}
               onCheck={(isChecked) =>
                 handleCheckUser(userCard.user.id, isChecked)
               }
               isChecked={checkedUsers.includes(userCard.user.id)}
               {...userCard}
-            ></UserCard>
+            />
           </div>
         ))}
       </div>
