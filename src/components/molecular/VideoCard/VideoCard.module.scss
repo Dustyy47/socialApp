@@ -1,0 +1,40 @@
+@import "~@styles/variables.scss";
+
+.contentWrapper{
+    display:flex;
+    gap: .625rem;
+}
+
+.textWrapper{
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+    height:100%;
+}
+
+.title{
+    max-width:25.625rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.author{
+    color:$greyText
+}
+
+.wrapper{
+    justify-content: space-between;
+}
+
+
+.datesWrapper{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.dates{
+    font-size: .875rem;
+    color:$greyText;
+}

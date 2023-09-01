@@ -30,7 +30,9 @@ export function UserCard({
     >
       <div className={styles.contentWrapper}>
         <div onClick={(e) => e.stopPropagation()}>
-          {<Checkbox isChecked={isChecked} onToggle={onCheck} />}
+          {showCheckbox && (
+            <Checkbox isChecked={isChecked} onToggle={onCheck} />
+          )}
         </div>
         <div className={styles.avatarWrapper}>
           <Avatar src={user.avatarUrl} alt={user.name} />

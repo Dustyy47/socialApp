@@ -1,12 +1,10 @@
 import '@src/styles/globals.scss';
-import { UserInfo } from './components/molecular/UserInfo/UserInfo';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { Events } from './components/organisms/Events/Events';
 import Header from './components/organisms/Header/Header';
-import { UsersList } from './components/organisms/UsersList/UsersList';
-import { IUser, IUserCard } from './types';
-import { useMemo, useState } from 'react';
+import Notes from './components/organisms/Notes/Notes';
 import { Profile } from './components/organisms/Profile/Profile';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { mockUsersCards } from './mock';
+import { Videos } from './components/organisms/Videos/Videos';
 import { UsersPage } from './pages/UsersPage/UsersPage';
 
 export function App() {
@@ -17,10 +15,12 @@ export function App() {
         <Routes>
           <Route path='users' element={<UsersPage />}>
             <Route path=':id' element={<Profile />}>
-              <Route path='profile' element={'PROFILE'}></Route>
+              <Route path='notes' element={<Notes />}></Route>
+              <Route path='videos' element={<Videos />}></Route>
+              <Route path='events' element={<Events />}></Route>
               <Route
                 path='*'
-                element={<Navigate to='profile'></Navigate>}
+                element={<Navigate to='notes'></Navigate>}
               ></Route>
             </Route>
           </Route>

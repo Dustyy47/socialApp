@@ -1,0 +1,26 @@
+.descriptionWrapper{
+    display:flex;
+    gap:.9375rem;
+}
+
+.title{
+    font-size: .875rem;
+    max-width:25.625rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.contentWrapper{
+    display: flex;
+    gap:.625rem;    
+
+}
+
+
+.centerWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height:100%;
+}

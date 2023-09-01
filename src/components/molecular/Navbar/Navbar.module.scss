@@ -1,0 +1,18 @@
+@import "~@styles/variables.scss";
+
+.navlink{
+    font-size: .875rem;
+    color: $greyText;
+    transition: .3s color;
+    padding-inline: 1.25rem;
+    border-right: 1px solid $greyBorder;
+
+    &:hover{
+        color:$blueText
+    }
+
+    &--active{
+        color:$blueText
+    }
+   
+}

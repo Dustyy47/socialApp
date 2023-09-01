@@ -3,10 +3,10 @@ import { PlusIcon } from '@src/components/atomic/PlusIcon/PlusIcon';
 import { Searchbar } from '@src/components/molecular/Searchbar/Searchbar';
 import { Statusbar } from '@src/components/molecular/Statusbar/Statusbar';
 import UserCard from '@src/components/molecular/UserCard/UserCard';
-import { IFullUserInfo, IUserCard } from '@src/types';
+import { IUserCard } from '@src/types';
 import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import styles from './UsersList.module.scss';
-import { Link, Outlet, useNavigate, useParams } from 'react-router-dom';
 
 export function UsersList({ userCards }: { userCards: IUserCard[] }) {
   const [filteredCards, setFilteredCards] = useState(userCards);
@@ -21,11 +21,8 @@ export function UsersList({ userCards }: { userCards: IUserCard[] }) {
 
   function handleSearch(query: string) {
     setSearchQuery(query);
-    if (!query) {
-      applyFilter(isAscending);
-    }
-    setFilteredCards((cards) =>
-      cards.filter((card) =>
+    setFilteredCards(
+      getFilteredCards(isAscending).filter((card) =>
         card.user.name.toLowerCase().includes(query.toLowerCase())
       )
     );
@@ -33,18 +30,16 @@ export function UsersList({ userCards }: { userCards: IUserCard[] }) {
 
   function toggleFilter() {
     setIsAscending((prev) => {
-      applyFilter(!prev);
+      setFilteredCards(getFilteredCards(!prev));
       return !prev;
     });
   }
 
-  function applyFilter(isAscending: boolean) {
-    setFilteredCards((prev) =>
-      [...userCards].sort((a, b) => {
-        const compareResult = a.user.name > b.user.name;
-        return isAscending ? +!compareResult : +compareResult;
-      })
-    );
+  function getFilteredCards(isAscending: boolean) {
+    return [...userCards].sort((a, b) => {
+      const compareResult = a.user.name > b.user.name;
+      return isAscending ? +!compareResult : +compareResult;
+    });
   }
 
   function handleToggleAll(isCheckingAll: boolean) {
@@ -62,11 +57,11 @@ export function UsersList({ userCards }: { userCards: IUserCard[] }) {
     setCheckedUsers((prev) => prev.filter((checkedId) => checkedId !== id));
   }
   function handleClickUser(id: string) {
-    navigate(`/users/${id}/profile`);
+    navigate(`/users/${id}/notes`);
   }
 
   useEffect(() => {
-    applyFilter(isAscending);
+    setFilteredCards(getFilteredCards(isAscending));
   }, [userCards]);
 
   useEffect(() => {

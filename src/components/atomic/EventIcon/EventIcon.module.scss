@@ -1,0 +1,12 @@
+@import "~@styles/variables.scss";
+
+.wrapper{
+    display: flex;
+    align-items: center;
+    gap: .375rem;
+    font-size: .8125rem;
+}
+
+.icon{
+    color: $blueText
+}

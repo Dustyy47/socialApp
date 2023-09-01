@@ -1,14 +1,15 @@
-import { Checkbox } from "@src/components/atomic/Checkbox/Checkbox";
-import clsx from "clsx";
-import { useState } from "react";
-import styles from "./Statusbar.module.scss";
+import { Checkbox } from '@src/components/atomic/Checkbox/Checkbox';
+import { Select } from '@src/components/atomic/Select/Select';
+import clsx from 'clsx';
+import { useState } from 'react';
+import styles from './Statusbar.module.scss';
 
 export function Statusbar({
   usersCount,
   checkedUsersCount,
   isChecking,
   onToggleAll,
-  setIsChecking,
+  setIsChecking
 }: {
   usersCount: number;
   checkedUsersCount: number;
@@ -17,6 +18,7 @@ export function Statusbar({
   setIsChecking: (isChecking: boolean) => any;
 }) {
   const [isCheckingAll, setCheckingAll] = useState(false);
+  const [isSelectingOption, setSelectingOption] = useState(false);
 
   function handleStartChecking() {
     setIsChecking(true);
@@ -40,7 +42,7 @@ export function Statusbar({
         {isChecking && (
           <div className={styles.checkbox}>
             <Checkbox
-              label="Все"
+              label='Все'
               isChecked={isCheckingAll}
               onToggle={handleToggleAll}
             />
@@ -49,7 +51,7 @@ export function Statusbar({
         <div
           className={clsx(
             styles.counter,
-            isChecking && styles["counter--active"]
+            isChecking && styles['counter--active']
           )}
         >
           {isChecking ? checkedUsersCount : usersCount}
@@ -58,9 +60,12 @@ export function Statusbar({
       <div className={styles.options}>
         {isChecking ? (
           <>
-            <p onClick={handleOpenActions} className={clsx(styles.option)}>
-              Действия
-            </p>
+            <div className={styles.optionsWrapper}>
+              <p onClick={handleOpenActions} className={clsx(styles.option)}>
+                Действия
+              </p>
+              <Select items={} isActive={isSelectingOption} />
+            </div>
             <p onClick={handleCancelChecking} className={clsx(styles.option)}>
               Отменить
             </p>
