@@ -56,8 +56,9 @@ export function UsersList({ userCards }: { userCards: IUserCard[] }) {
     }
     setCheckedUsers((prev) => prev.filter((checkedId) => checkedId !== id));
   }
-  function handleClickUser(id: string) {
-    navigate(`/users/${id}/notes`);
+  function handleClickUser(targetUserId: string) {
+    if (id === targetUserId) return;
+    navigate(`/users/${targetUserId}/notes`);
   }
 
   useEffect(() => {

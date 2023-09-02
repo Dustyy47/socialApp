@@ -1,4 +1,5 @@
 import { EventCard } from '@src/components/molecular/EventCard/EventCard';
+import { ProfileSectionWrapper } from '@src/components/molecular/ProfileSectionWrapper/ProfileSectionWrapper';
 import { mockEvents } from '@src/mock';
 import { IEvent } from '@src/types';
 import { useEffect, useState } from 'react';
@@ -13,10 +14,14 @@ export function Events() {
   }, [id]);
 
   return (
-    <div className={styles.wrapper}>
+    <ProfileSectionWrapper
+      emptyLabel='Нет мероприятий'
+      isEmpty={events.length === 0}
+      className={styles.wrapper}
+    >
       {events.map((event) => (
         <EventCard event={event} key={event.id} />
       ))}
-    </div>
+    </ProfileSectionWrapper>
   );
 }

@@ -1,5 +1,5 @@
-import { Empty } from '@src/components/atomic/Empty/Empty';
 import { Note } from '@src/components/molecular/Note/Note';
+import { ProfileSectionWrapper } from '@src/components/molecular/ProfileSectionWrapper/ProfileSectionWrapper';
 import { mockNotes } from '@src/mock';
 import { INote } from '@src/types';
 import { useEffect, useState } from 'react';
@@ -13,17 +13,15 @@ function Notes() {
     if (id) setNotes(mockNotes[id] ?? []);
   }, [id]);
   return (
-    <div className={styles.wrapper}>
-      {notes.length === 0 ? (
-        <Empty>Нет заметок</Empty>
-      ) : (
-        <div>
-          {notes.map((note) => (
-            <Note key={note.id} note={note} />
-          ))}
-        </div>
-      )}
-    </div>
+    <ProfileSectionWrapper
+      emptyLabel='Нет заметок'
+      isEmpty={notes.length === 0}
+      className={styles.wrapper}
+    >
+      {notes.map((note) => (
+        <Note key={note.id} note={note} />
+      ))}
+    </ProfileSectionWrapper>
   );
 }
 

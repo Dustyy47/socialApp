@@ -1,4 +1,4 @@
-import { IEvent, INote, IUserCard, IVideo } from '@src/types';
+import { IConsulation, IEvent, INote, IUserCard, IVideo } from '@src/types';
 
 const link =
   'https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1296346667/image_1296346667.jpg?io=getty-c-w1536';
@@ -86,6 +86,44 @@ export const mockEvents: Record<string, IEvent[]> = {
       time: '17:00',
       type: 'web',
       thumbnail: link
+    }
+  ]
+};
+
+export const mockConsultations: Record<string, IConsulation[]> = {
+  '123': [
+    {
+      id: '123-1',
+      title: 'Online консультация',
+      date: '15.01.2019',
+      time: {
+        start: '12:30',
+        end: '13:00'
+      },
+      confirmed: true,
+      type: 'online'
+    },
+    {
+      id: '123-2',
+      title: 'Online консультация',
+      date: '15.01.2019',
+      time: {
+        start: '12:30',
+        end: '13:00'
+      },
+      confirmed: true,
+      type: 'online'
+    },
+    {
+      id: '123-3',
+      title: 'Личный приём',
+      date: '15.01.2019',
+      time: {
+        start: '12:30',
+        end: '13:00'
+      },
+      confirmed: false,
+      type: 'offline'
     }
   ]
 };

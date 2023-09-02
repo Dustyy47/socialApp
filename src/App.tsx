@@ -1,5 +1,6 @@
 import '@src/styles/globals.scss';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import { Consultations } from './components/organisms/Consultations/Consultations';
 import { Events } from './components/organisms/Events/Events';
 import Header from './components/organisms/Header/Header';
 import Notes from './components/organisms/Notes/Notes';
@@ -18,6 +19,7 @@ export function App() {
               <Route path='notes' element={<Notes />}></Route>
               <Route path='videos' element={<Videos />}></Route>
               <Route path='events' element={<Events />}></Route>
+              <Route path='consultations' element={<Consultations />}></Route>
               <Route
                 path='*'
                 element={<Navigate to='notes'></Navigate>}

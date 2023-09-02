@@ -18,13 +18,15 @@ export function Statusbar({
   setIsChecking: (isChecking: boolean) => any;
 }) {
   const [isCheckingAll, setCheckingAll] = useState(false);
-  const [isSelectingOption, setSelectingOption] = useState(false);
+  const [isSelectingActivity, setSelectingActivity] = useState(false);
 
   function handleStartChecking() {
     setIsChecking(true);
   }
 
-  function handleOpenActions() {}
+  function handleOpenActions() {
+    setSelectingActivity((prev) => !prev);
+  }
 
   function handleCancelChecking() {
     setIsChecking(false);
@@ -60,13 +62,21 @@ export function Statusbar({
       <div className={styles.options}>
         {isChecking ? (
           <>
-            <div className={styles.optionsWrapper}>
-              <p onClick={handleOpenActions} className={clsx(styles.option)}>
+            <div className={styles.activities}>
+              <p
+                onClick={handleOpenActions}
+                className={clsx(
+                  styles.option,
+                  isSelectingActivity && styles['option--active']
+                )}
+              >
                 Действия
               </p>
-              <Select items={} isActive={isSelectingOption} />
+              <div className={styles.activitiesSelect}>
+                <Select isActive={isSelectingActivity} />
+              </div>
             </div>
-            <p onClick={handleCancelChecking} className={clsx(styles.option)}>
+            <p onClick={handleCancelChecking} className={styles.option}>
               Отменить
             </p>
           </>

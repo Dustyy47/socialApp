@@ -23,9 +23,7 @@ export function UserInfo({ user }: { user: IUser }) {
           </p>
         </div>
       </div>
-      <div>
-        <Options />
-      </div>
+      <Options />
     </Card>
   );
 }

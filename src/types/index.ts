@@ -30,7 +30,9 @@ export type IConsulationStatus = '';
 
 export interface IConsulation {
   id: string;
+  title: string;
   type: ConsultationType;
+  confirmed: boolean;
   date: string;
   time: {
     start: string;

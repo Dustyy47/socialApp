@@ -17,24 +17,19 @@ const userOptions: ISelectItem[] = [
   }
 ];
 
-export function UserOptionsSelect() {
-  return <Select />;
-}
 
 export function Select({
-  isActive,
-  items
+  isActive
 }: {
   isActive: boolean;
-  items: ISelectItem[];
 }) {
   return (
     <div
       className={clsx(styles.wrapper, isActive && styles['wrapper--active'])}
     >
-      {items.map((item) => (
-        <div className={styles.item} key={item.id}>
-          {item.label}
+      {userOptions.map((option) => (
+        <div className={styles.item} key={option.id}>
+          {option.label}
         </div>
       ))}
     </div>

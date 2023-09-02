@@ -1,4 +1,4 @@
-import { Empty } from '@src/components/atomic/Empty/Empty';
+import { ProfileSectionWrapper } from '@src/components/molecular/ProfileSectionWrapper/ProfileSectionWrapper';
 import { VideoCard } from '@src/components/molecular/VideoCard/VideoCard';
 import { mockVideos } from '@src/mock';
 import { IVideo } from '@src/types';
@@ -13,16 +13,14 @@ export function Videos() {
     if (id) setVideos(mockVideos[id] ?? []);
   }, [id]);
   return (
-    <div className={styles.wrapper}>
-      {videos.length === 0 ? (
-        <Empty>Нет видео</Empty>
-      ) : (
-        <>
-          {videos.map((video) => (
-            <VideoCard key={video.id} video={video} />
-          ))}
-        </>
-      )}
-    </div>
+    <ProfileSectionWrapper
+      emptyLabel='Нет видео'
+      isEmpty={videos.length === 0}
+      className={styles.wrapper}
+    >
+      {videos.map((video) => (
+        <VideoCard key={video.id} video={video} />
+      ))}
+    </ProfileSectionWrapper>
   );
 }
