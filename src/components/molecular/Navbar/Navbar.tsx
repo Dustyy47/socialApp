@@ -27,6 +27,20 @@ const navlinks: INavLink[] = [
   }
 ];
 
+function getAddButtonLabel(type: string) {
+  switch (type) {
+    case 'notes':
+      return 'Новая заметка';
+    case 'consultations':
+      return 'Записать';
+    case 'videos':
+      return 'Рекомендовать';
+    case 'events':
+      return 'Рекомендовать';
+  }
+  return '';
+}
+
 export function Navbar() {
   const location = useLocation();
   const activeLink = location.pathname.split('/').at(-1);
@@ -47,7 +61,7 @@ export function Navbar() {
           </Link>
         ))}
       </div>
-      <AddButton label='Новая заметка' />
+      <AddButton label={getAddButtonLabel(activeLink ?? '')} />
     </div>
   );
 }

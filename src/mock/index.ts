@@ -143,7 +143,7 @@ export const mockVideos: Record<string, IVideo[]> = {
         start: '15.01.2019',
         end: '22.01.2019'
       },
-      thumbnail: link,
+      thumbnail: '/images/video1.png',
       title:
         'Крабик, ходьба в бок в приседе с двумя резинками Крабиком Крабиком Крабиком'
     },
@@ -154,7 +154,17 @@ export const mockVideos: Record<string, IVideo[]> = {
         start: '15.01.2019',
         end: '22.01.2019'
       },
-      thumbnail: link,
+      thumbnail: '/images/video2.png',
+      title: 'Разминка для локтевого сустава'
+    },
+    {
+      id: '123-2',
+      author: 'Астахова А.А',
+      dates: {
+        start: '15.01.2019',
+        end: '22.01.2019'
+      },
+      thumbnail: '/images/video3.png',
       title: 'Разминка для локтевого сустава'
     }
   ]
@@ -168,7 +178,7 @@ export const mockEvents: Record<string, IEvent[]> = {
       title: 'Тяга резинки в шаге со сгибанием локтя под 90 градусов',
       time: '17:00',
       type: 'web',
-      thumbnail: link
+      thumbnail: '/images/event1.png'
     },
     {
       date: '9 марта 2021',
@@ -176,7 +186,23 @@ export const mockEvents: Record<string, IEvent[]> = {
       title: 'Тяга резинки в шаге со сгибанием локтя под 90 градусов',
       time: '17:00',
       type: 'web',
-      thumbnail: link
+      thumbnail: '/images/event1.png'
+    },
+    {
+      date: '9 марта 2021',
+      id: '123-3',
+      title: 'Тяга резинки в шаге со сгибанием локтя под 90 градусов',
+      time: '17:00',
+      type: 'web',
+      thumbnail: '/images/event1.png'
+    },
+    {
+      date: '9 марта 2021',
+      id: '123-4',
+      title: 'Тяга резинки в шаге со сгибанием локтя под 90 градусов',
+      time: '17:00',
+      type: 'web',
+      thumbnail: '/images/event1.png'
     }
   ]
 };
