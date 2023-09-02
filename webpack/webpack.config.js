@@ -28,28 +28,22 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
-        user: [
+        use: [
           {
-            loader: 'file-loader?name=/public/images/[name].[ext]'
-          }
-        ]
-      }
-      //   {
-      //     test: /\.(png|svg|jpg|jpeg|gif)$/i,
-      //     type: "asset/resource",
-      //   },
+            loader: "file-loader?name=/public/images/[name].[ext]",
+          },
+        ],
+      },
     ],
   },
   output: {
-    publicPath: '/',
+    publicPath: "/",
     path: path.resolve(__dirname, "..", "./build"),
     filename: "bundle.js",
   },
   mode: "development",
 
   devServer: {
-    contentBase:'/',
-    contentBasePublicPath:'/',
     historyApiFallback: true,
   },
   plugins: [
