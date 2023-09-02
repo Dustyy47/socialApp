@@ -1,11 +1,32 @@
 @import "~@styles/variables.scss";
 
+.wrapper{
+    display:flex;
+    justify-content: space-between;
+    align-items: start;
+}
+
 .content{
     font-size: .875rem;
-    line-height: 24px; 
+    line-height: 1.5rem; 
 }
 
 .date{
     color:$greyText;
     margin-right:.625rem;
+}
+
+.images {
+    display:flex;
+    gap:.625rem;
+    flex-wrap: wrap;
+}
+
+.image{
+    border: 5px solid $greyBorder;
+    border-radius:.25rem;
+    max-width:210px;
+    height:134px;
+    object-fit: cover;
+
 }

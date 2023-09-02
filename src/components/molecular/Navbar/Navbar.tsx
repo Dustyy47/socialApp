@@ -1,3 +1,4 @@
+import { AddButton } from '@src/components/atomic/AddButton/AddButton';
 import clsx from 'clsx';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './Navbar.module.scss';
@@ -28,13 +29,11 @@ const navlinks: INavLink[] = [
 
 export function Navbar() {
   const location = useLocation();
-  console.log(location);
   const activeLink = location.pathname.split('/').at(-1);
-  console.log(activeLink);
 
   return (
-    <div>
-      <div>
+    <div className={styles.wrapper}>
+      <div className={styles.navlinks}>
         {navlinks.map((link, index) => (
           <Link
             key={index}
@@ -48,6 +47,7 @@ export function Navbar() {
           </Link>
         ))}
       </div>
+      <AddButton label='Новая заметка' />
     </div>
   );
 }

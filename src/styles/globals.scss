@@ -10,6 +10,7 @@ body {
   background-color: $lightGreyBg;
   font-family: "SF Pro Display";
   color: $blackText;
+  scroll-behavior: smooth;
 }
 
 .container {
@@ -57,4 +58,14 @@ body {
 .roundedIcon {
   transition: 0.3s;
   color: $greyText;
+}
+
+@media screen and (max-width:$lgScreen) {
+    .wrapper{
+      flex-direction: column-reverse;
+    
+      & > .list{
+        max-width: 100%;
+      }
+    }
 }

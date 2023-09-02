@@ -1,0 +1,35 @@
+@import "~@styles/variables.scss";
+
+.wrapper{
+    display: flex;
+    align-items:center;
+    gap: .625rem;
+    cursor: pointer;
+    
+    &:hover{
+        .label {
+            color: $blueText
+        }
+
+        .icon {
+            color: white;
+            border: 1px solid transparent;
+            background: $blueText;
+        }
+    }
+}
+
+.label{
+    transition:.3s;
+    font-size: 14px;
+    color: $greyText
+}
+
+.icon{
+    width: 26px;
+    aspect-ratio: 1;
+    border:1px solid $greyText;
+    border-radius: 100%;
+    transition:.3s;
+    color: $greyText
+}

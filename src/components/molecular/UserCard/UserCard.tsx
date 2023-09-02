@@ -35,9 +35,11 @@ export function UserCard({
           )}
         </div>
         <div className={styles.avatarWrapper}>
-          <Avatar src={user.avatarUrl} alt={user.name} />
+          <Avatar src={user.avatarUrl} alt={user.lastname} />
         </div>
-        <p className='name'>{user.name}</p>
+        <p className='name'>
+          {user.lastname} {user.firstname}
+        </p>
       </div>
       <div>
         <UserStatus status={status} />

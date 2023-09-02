@@ -23,7 +23,7 @@ export function UsersList({ userCards }: { userCards: IUserCard[] }) {
     setSearchQuery(query);
     setFilteredCards(
       getFilteredCards(isAscending).filter((card) =>
-        card.user.name.toLowerCase().includes(query.toLowerCase())
+        card.user.lastname.toLowerCase().includes(query.toLowerCase())
       )
     );
   }
@@ -37,7 +37,7 @@ export function UsersList({ userCards }: { userCards: IUserCard[] }) {
 
   function getFilteredCards(isAscending: boolean) {
     return [...userCards].sort((a, b) => {
-      const compareResult = a.user.name > b.user.name;
+      const compareResult = a.user.lastname > b.user.lastname;
       return isAscending ? +!compareResult : +compareResult;
     });
   }

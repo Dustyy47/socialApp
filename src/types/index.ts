@@ -1,6 +1,8 @@
 export interface IUser {
   id: string;
-  name: string;
+  lastname: string;
+  firstname: string;
+  patronymic: string;
   age: number;
   gender: 'male' | 'female';
   avatarUrl: string;
@@ -23,6 +25,7 @@ export interface INote {
   id: string;
   date: string;
   content: string;
+  images: string[];
 }
 
 export type ConsultationType = 'online' | 'offline';
@@ -61,4 +64,4 @@ export interface IEvent {
   time: string;
 }
 
-export type IUserStatus = 'newNote' | 'alert';
+export type IUserStatus = 'newNote' | 'alert' | 'idle';
