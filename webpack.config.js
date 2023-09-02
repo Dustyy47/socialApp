@@ -2,13 +2,13 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: path.resolve(__dirname, "..", "./src/index.tsx"),
+  entry: path.resolve(__dirname, "src/index.tsx"),
   resolve: {
     extensions: [".tsx", ".ts", ".js", "scss"],
     alias: {
-      "@src": path.resolve(__dirname, "..", "src/"),
-      "@components": path.resolve(__dirname, "..", "src/components/"),
-      "@styles": path.resolve(__dirname, "..", "src/styles/"),
+      "@src": path.resolve(__dirname, "src/"),
+      "@components": path.resolve(__dirname, "src/components/"),
+      "@styles": path.resolve(__dirname, "src/styles/"),
     },
   },
   module: {
@@ -38,7 +38,7 @@ module.exports = {
   },
   output: {
     publicPath: "/",
-    path: path.resolve(__dirname, "..", "./build"),
+    path: path.resolve(__dirname, "./build"),
     filename: "bundle.js",
   },
   mode: "development",
@@ -48,8 +48,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "..", "./public/index.html"),
-      favicon: path.resolve(__dirname, "..", "./public/favicon.ico"),
+      template: path.resolve(__dirname, "./public/index.html"),
+      favicon: path.resolve(__dirname, "./public/favicon.ico"),
     }),
   ],
 };
